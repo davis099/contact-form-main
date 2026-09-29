@@ -1,0 +1,263 @@
+@layer reset {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+        font: inherit;
+    }
+
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url(/assets/fonts/Karla-VariableFont_wght.ttf);
+    font-weight: 400 700;
+}
+
+:root {
+    --bac-clr:  hsl(148, 38%, 91%);
+    --btn-clr: hsl(169, 82%, 27%);
+    --err-clr: hsl(0, 66%, 54%);
+    --form-bac: hsl(0, 0%, 100%);
+    --font-clr: hsl(186, 15%, 59%);
+    --header-clr: hsl(187, 24%, 22%);
+    --ff-sans: Karla;
+}
+
+body {
+    font-size: 16px;
+    font-family: var(--ff-sans);
+     accent-color: var(--btn-clr);
+     background: var(--bac-clr);
+     padding-inline: 20px;
+}
+
+h1 {
+    padding-block-end: 25px;
+    color: var(--header-clr);
+}
+
+
+main {
+    padding: 0;
+}
+
+input {
+    border: 1px solid var(--font-clr);
+    padding: .8em 1.5em;
+    border-radius: 6px;
+    outline: 0;
+    cursor: pointer;
+}
+
+input:focus-visible {
+    border: 1px solid var(--btn-clr);
+    
+}
+
+textarea {
+    border: 1px solid var(--font-clr);
+    padding: .75em 1.5em;
+    border-radius: 6px;
+    height: 3lh;
+    line-height: 1.7;
+    box-sizing: content-box;
+    resize: none;
+}
+
+textarea:focus-visible {
+    outline: 1px solid var(--btn-clr); 
+}
+
+.contact-form {
+    position: relative;
+    margin-block: 50px;
+    max-inline-size: 700px;
+    background: var(--form-bac);
+    margin-inline: auto;
+    padding: 1.8rem;
+    border-radius: 10px;
+}
+
+form {
+    display: grid;
+    gap: 1.5rem;
+
+    @media (min-width:520px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+label {
+    color: var(--header-clr);
+}
+
+legend {
+    color: var(--header-clr);
+}
+
+.form-group {
+    display: grid;
+    gap: .34rem;
+    grid-auto-rows: min-content;
+}
+
+
+.span-all {
+    grid-column: 1 / -1;
+}
+
+.form-group:has(:not([type="radio"])[required]) label, legend {
+    display: flex;
+    gap: 1ch;
+
+    &::after {
+        content: "*";
+        color: var(--btn-clr);
+    }
+}
+
+.form-group:has([type='checkbox']){
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 2ch;
+}
+
+fieldset {
+    border: none;
+    display: grid;
+    grid-template-columns: inherit;
+    gap: inherit;
+}
+
+fieldset legend {
+    margin-block: 1rem;
+}
+
+fieldset span {
+    translate: 0 -10px;
+}
+
+
+
+.form-group:has([type="radio"]) {
+    display: flex;
+    gap: 1ch;
+     border: 1px solid var(--font-clr);
+    padding: .8em 1em;
+    border-radius: 6px;
+}
+
+.form-group:has([type="radio"]) {
+    position: relative;
+
+    label::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
+}
+
+.form-group:has([type="radio"]:checked) {
+    background: var(--bac-clr);
+    border: 1px solid var(--btn-clr);
+}
+
+
+[type="radio"],
+[type="checkbox"] {
+    width: 1rem;
+}
+
+
+button {
+    border: none;
+    color: var(--form-bac);
+    background: var(--btn-clr);
+     padding: .8em .92em;
+     border-radius: 6px;
+     cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+    background: var(--header-clr);
+}
+
+.error-message {
+    color: var(--err-clr);
+}
+
+.error-message:empty {
+    display: none;
+}
+
+input:user-invalid,
+textarea:user-invalid {
+    border: 1px solid var(--err-clr);
+}
+
+.success-message {
+    position: absolute;
+    left: 35%;
+    top: 0;
+    z-index: 1;
+    margin-inline: auto;
+    background: var(--header-clr);
+    color: white;
+    max-width: 450px;
+    padding:  20px 20px;
+    border-radius: 10px;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+    }
+
+    p {
+        margin-block: 10px;
+    }
+
+}
+
+.success-message.show {
+    opacity: 1;
+}
+
+.wrap {
+    display: flex;
+    gap: 1ch;
+}
+
+@media (width < 800px) {
+
+    .contact-form {
+        position: relative;
+    }
+
+    .success-message {
+        position: absolute;
+        left: 47%;
+        top: 0;
+        margin-inline: auto;
+        max-width: 300px;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease in;
+    }
+}

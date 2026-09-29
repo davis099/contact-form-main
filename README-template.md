@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: ADD YOUR LIVE SITE LINK HERE
-- Frontend Mentor Solution: ADD YOUR FRONTEND MENTOR SOLUTION LINK HERE
+- Live Site URL: https://davidcontactform.netlify.app/
+- Frontend Mentor Solution: [(https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj?tab=submit)]
 
 ## My process
 
